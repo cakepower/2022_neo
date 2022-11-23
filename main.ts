@@ -18,7 +18,7 @@ basic.forever(function () {
         strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
     } else {
         strip.showColor(neopixel.colors(NeoPixelColors.Black))
-        strip.setMatrixColor(randint(0, 7), randint(0, 7), neopixel.colors(NeoPixelColors.Red))
+        strip.showBarGraph(input.soundLevel(), 128)
         strip.show()
         basic.pause(500)
     }
