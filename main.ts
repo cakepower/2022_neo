@@ -18,8 +18,8 @@ basic.forever(function () {
         strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
     } else {
         strip.showColor(neopixel.colors(NeoPixelColors.Black))
-        strip.setMatrixColor(0, 0, neopixel.colors(NeoPixelColors.Red))
+        strip.setMatrixColor(randint(0, 7), randint(0, 7), neopixel.colors(NeoPixelColors.Red))
         strip.show()
-        basic.pause(100)
+        basic.pause(500)
     }
 })
