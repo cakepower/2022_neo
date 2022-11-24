@@ -1,4 +1,4 @@
-let strip = neopixel.create(DigitalPin.P13, 64, NeoPixelMode.RGB)
+let strip = neopixel.create(DigitalPin.P13, 256, NeoPixelMode.RGB)
 let range = strip.range(0, 15)
 let range2 = strip.range(16, 31)
 let range3 = strip.range(32, 47)
@@ -10,12 +10,12 @@ range4.setBrightness(20)
 strip.setMatrixWidth(8)
 strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Yellow))
 strip.show()
+strip.showRainbow(1, 360)
 basic.forever(function () {
     serial.writeNumber(input.lightLevel())
     serial.writeLine("")
     if (input.lightLevel() > 220) {
-        strip.rotate(1)
-        basic.pause(100)
+        strip.rotate(10)
         strip.show()
     } else if (input.lightLevel() > 210) {
         strip.showRainbow(1, 360)
@@ -24,6 +24,7 @@ basic.forever(function () {
         strip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
     } else {
         strip.showColor(neopixel.colors(NeoPixelColors.Black))
+        strip.showBarGraph(input.soundLevel(), 125)
         range.showBarGraph(input.soundLevel(), 100)
         range2.showBarGraph(input.soundLevel(), 100)
         range3.showBarGraph(input.soundLevel(), 100)
